@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <title>Title</title>
+</head>
+<body>
+<nav class="navbar bg-info fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FisiOnline</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header bg-info">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">FisiOnline</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body bg-info">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="fs-5 nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="fs-5 nav-link" aria-current="page" href="/wellcometransaction">Transacciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="fs-5 nav-link" aria-current="page" href="/welcome-employee">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="fs-5 nav-link" aria-current="page" href="#">Empresas</a>
+          </li>
+          <div class="navbar-nav ms-auto">
+            <a class="fs-5 nav-link active" href="/login"> Cerrar Sesión</a>
+          </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+</nav>
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 py-4 bg-white mt-4">
+            <h1 class="text-center mt-4 mb-4">Sistema de Gestión de Ingresos y Gastos</h1>
+            <div class="py-3">
+              <div class="row">
+                <div class="col d-flex justify-content-between">
+                  <input type="submit" value="" class="btn btn-sm btn-light float-left">
+
+                  <a href="/" class="btn btn-sm btn-ligh mx-auto" style="margin:auto"></a>
+                  <a href="/addemployee"  class="btn btn-sm btn-info float-right" type="submit"> + Nuevo Empleado </a>
+
+                </div>
+                <h3 class= " tw-bold mb-3">Usuarios</h3>
+                <table class="table table-info table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Id Empresa</th>
+                    <th scope="col">Transacciones</th>
+                    <th scope="col">editar</th>
+                    <th scope="col">Borrar</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="employee : ${employees}">
+                    <td th:text="${employee.idEmpl}"></td>
+                    <td th:text="${employee.nameEmpl}"></td>
+                    <td th:text="${employee.emailEmpl}"></td>
+                    <td th:text="${employee.roleEmpl}"></td>
+                    <div th:each="Enterprise : ${employee.enterprise}">
+                      <td th:text="${Enterprise.idEnterprise}"></td>
+                    </div>
+
+
+                    <td>
+                      <form th:action="@{/transacciones/{idEmpleado} (idEmpleado=${employee.idEmpl})}" th:method="get">
+                        <button  type="submit" class="btn btn-sm btn-outline-dark" >Transacciones.</button>
+                      </form>
+                    </td>
+
+                    <td>
+                      <form th:action="@{/employee/update/{id}(id=${employee.idEmpl})}" th:method="get">
+                        <button  type="submit" class="btn btn-sm btn-outline-dark" >Editar.</button>
+                      </form>
+                    </td>
+
+                    <td>
+                      <form th:action="@{/employee/front/{id}(id=${employee.idEmpl})}" th:method="delete">
+                        <button type="submit" class="btn btn-sm btn-outline-dark" >Borrar</button>
+                      </form>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
