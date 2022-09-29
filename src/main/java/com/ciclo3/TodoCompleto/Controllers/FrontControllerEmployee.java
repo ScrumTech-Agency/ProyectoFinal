@@ -98,7 +98,6 @@ public class FrontControllerEmployee {
                     System.out.println(transactionsBD.get(i).getRoleTransaction());
                     transactionsOfEmployee.add(transactionsBD.get(i));
 
-
                 }
             }
             model.addAttribute("TrxEmployee",transactionsOfEmployee);

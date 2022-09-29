@@ -29,7 +29,8 @@ public class Enterprise {
     private java.sql.Date createdAt;
     @Column
     private Date updateAt;
-
+    @Column
+    private float total;
 
     // constructor
 
@@ -121,5 +122,13 @@ public class Enterprise {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
     }
 }
