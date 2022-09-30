@@ -9,57 +9,102 @@
     <title>Document</title>
 </head>
 <body>
-
 <main>
-    <form method="POST" action="#" th:object="${EnterpriseUpdate}"  th:action="@{/updateEnterpriseNew}">
-        <div class="position-relative text-center">
-            <div class="position-absolute top-50 start-50 translate-middle-x" >
-          <span class="border border-5">
-              <img src="../LogoIII.png" class="img-thumbnail" height="400" width="400">
-          </span>
-                <div class="text-md">
-                    <h3> ACTUALIZA  TUS DATOS </h3>
+    <nav class="navbar bg-info fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FisiOnline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header bg-info">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">FisiOnline</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-
-                <div >
-                    <b><label for="idEnterprise" class="form-label">Id de la Empresa</label></b>
-                    <input type="text" class="form-control" th:value="*{idEnterprise}"  th:field="*{idEnterprise}" id="idEnterprise" placeholder="Enter  idEnterprise">
-
-                    <b><label for="nameEnterprise" class="form-label">Nombre de la Empresa</label></b>
-                    <input type="text" class="form-control" th:value="*{name}"  th:field="*{name}" id="nameEnterprise" placeholder="Enter name of Enterprise">
-                </div>
-
-                <div class="col -12">
-                    <b><label for="NITEnterprise" class="form-label">NIT de la Empresa</label></b>
-                    <input type="text" class="form-control" th:value="*{document}"  th:field="*{document}" id="NITEnterprise" placeholder="Enter NIT of Enterprise">
-                </div>
-
-                <div class="col -12">
-                    <b><label for="phoneEnterprise" class="form-label">Telefono de la Empresa</label></b>
-                    <input type="text" class="form-control"  th:value="*{phone}"  th:field="*{phone}" id="phoneEnterprise" placeholder="Enter  idEnterprise">
-                </div>
-
-                <div class="col -12">
-                    <b><label for="addressEnterprise" class="form-label">Direccion de la Empresa</label></b>
-                    <input type="text" class="form-control"  th:value="*{address}"  th:field="*{address}" id="addressEnterprise" placeholder="Enter  idEnterprise">
-                </div>
-
-                <form action="/action_page.php">
-                    <b><label for="createdAtEnterprise">Fecha creacion de la Empresa):</label></b><br>
-                    <input type="date" th:value="*{createdAt}" th:field="*{createdAt}" id="createdAtEnterprise" name="createdAtEnterprise">
-                </form>
-
-
-                <div class="col-lg-6 mx-auto mb-5 w-50 p-3">
-                    <button class="btn btn-primary" type="submit">Actualizar Datos</button>
-                </div>
-                <div>
-                    <p> Copyright Reserve Company 2022 </p>
+                <div class="offcanvas-body bg-info">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="fs-5 nav-link" aria-current="page" href="/WelcomeUser">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fs-5 nav-link" aria-current="page" href="/welcomeTransactions">Transacciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fs-5 nav-link" aria-current="page" href="/welcomeEmployee">Empleados</a>
+                        </li>
+                        <div class="navbar-nav ms-auto">
+                            <a class="fs-5 nav-link active" href="/"> Cerrar Sesión</a>
+                        </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </form>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 py-4 bg-white mt-4">
+                        <h2 class="text-center mt-4 mb-4">Sistema de Gestión de Ingresos y Gastos</h2>
+                        <div class="py-3">
+                            <div class="container my-4 mt-3 px-4  my-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 py-6 bg-white px-6">
+                                        <h3 class=" tw-bold mb-3 text-center">Actualizar Empresa</h3>
+                                            <form method="POST" action="#" th:object="${EnterpriseUpdate}"  th:action="@{/updateEnterpriseNew}">
+                                                <div class="position-relative text-center">
+                                                    <div class="position-absolute top-50 start-50 translate-middle-x" >
 
+
+                                                        <div class="col -12">
+                                                            <input type="text" class="form-control mb-4" th:field="*{idEnterprise}" id="idEnterprise" placeholder="ID  " required>
+                                                        </div>
+
+                                                        <div class="col -12">
+                                                            <input type="text" class="form-control mb-4" th:field="*{name}" id="nameEnterprise" placeholder="Nombre" required>
+                                                        </div>
+
+                                                        <div class="col -12">
+                                                            <input type="text" class="form-control mb-4" th:field="*{document}" id="NITEnterprise" placeholder="NIT" required>
+                                                        </div>
+
+                                                        <div class="col -12">
+                                                            <input type="text" class="form-control mb-4" th:field="*{phone}" id="phoneEnterprise" placeholder="Telefono" required>
+                                                        </div>
+
+                                                        <div class="col -12">
+                                                            <input type="text" class="form-control mb-4"   th:field="*{address}" id="addressEnterprise" placeholder="Dirección" required>
+                                                        </div>
+
+                                                        <form action="/action_page.php">
+                                                            <input type="date" th:value="*{createdAt}" th:field="*{createdAt}" id="createdAtEnterprise" name="createdAtEnterprise">
+                                                        </form>
+
+                                                        <div class="d-grid gap-2 mb-4 mt-4">
+                                                            <a href="//welcomeEnterpriseNew" type="submit" class="btn btn-outline-dark">
+                                                                Cancelar
+                                                            </a>
+                                                            <button class="btn btn-info" type="submit">Actualizar</button>
+                                                        </div>
+
+
+
+                                                            <p> Copyright Reserve Company 2022 </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 
