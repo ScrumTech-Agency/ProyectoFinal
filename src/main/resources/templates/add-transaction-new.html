@@ -15,7 +15,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header bg-info">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">FisiOnline</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -23,35 +23,33 @@
             <div class="offcanvas-body bg-info">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/WelcomeUser">Home</a>
+                        <a class=" fs-5 nav-link active" aria-current="page" href="WelcomeUser">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Usuarios</a>
+                        <a class=" fs-5 nav-link active" aria-current="page" href="/welcomeEmployee">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Empresas</a>
+                        <a class=" fs-5 nav-link active" aria-current="page" href="/welcomeEnterpriseNew">Empresas</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/wellcometransaction">Transacciones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Cerrar sesión</a>
-                    </li>
+                    <div class="navbar-nav ms-auto">
+                        <a class="fs-5 nav-link active" href="/"> Cerrar Sesión</a>
+                    </div>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
+
 <div class="container">
     <div class="row">
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 py-4 bg-white mt-4">
-                    <h4 class="text-center mt-4 mb-4">Sistema de Gestión de Ingresos y Gastos</h4>
+                    <h2 class="text-center mt-4 mb-4">Sistema de Gestión de Ingresos y Gastos</h2>
                     <div class="py-3">
-                        <div class="container my-4 mt-3 px-4 py-5 my-5">
+                        <div class="container my-4 mt-3 px-4  my-5">
                             <div class="row justify-content-center">
-                                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-6 bg-white px-6">
+                                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-2 bg-white px-6">
                                     <h3 class=" tw-bold mb-3 text-center">Nueva Transacción</h3>
                                     <form method="post" th:object="${formTransaction}" th:action="@{/transaction/register}">
                                         <div class="mt-4 mb-4">

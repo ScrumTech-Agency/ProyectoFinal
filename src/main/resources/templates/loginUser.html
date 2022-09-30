@@ -1,52 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login Company</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Document</title>
 </head>
-<body class="card text-bg-info mb-3" >
-<main>
-    <form method="POST" th:object="${formUsersLogin}" th:action="@{/loginUser}">
-        <div class="position-relative text-center">
-            <div class="position-absolute top-50 start-50 translate-middle-x" >
-                <span class="border border-5">
-                    <img src="../LogoIII.png" class="img-thumbnail" height="400" width="400">
-                </span>
-                <div class="text-md">
-                    <h3> INGRESA TUS DATOS </h3>
-                </div>
-                <div class="col -12">
-                    <b><label for="userApplication" class="form-label">Documento de identidad</label></b>
-                    <input type="text" class="form-control" th:field="*{userApplication}" id="userApplication" placeholder="Escribe aqui tu documento de identidad">
+<body>
+<!-- Barra  -->
+<nav class="navbar bg-info fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">FisiOnline</a>
+    </div>
+</nav>
 
-                </div>
-                <br>
-                <div class="col - 12">
-                    <b><label for="passwordUser" class="form-label">Password</label></b>
-                    <input type="password" class="form-control" th:field="*{passwordUser}" id="passwordUser" placeholder="Escribe aqui tu passsword">
+<!-- Background image -->
+<div
+        class="bg-image"
+        style="
+    background-image: url('https://pixabay.com/get/g6ea012aed28f4316f884b15b3efcf7783955d6b92d6d173b099bd0a9a8febd790a6e8530c6cf2aeecd927a88f26f29bbda3aaada0f91c583094bbb157afac849_1920.jpg');
+    height: 100vh;
+  "
+>
+    <div class="mask gradient-custom">
+        <div class="d-flex justify-content-center align-items-center h-50">
+            <div class="container my-2  px-4 ">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 px-6">
+                        <img src="img/login-azul.png" class="d-block mx-auto text-center " height="300" alt="Login"/>
+                        <h2 class="fs-1 tw-bold text-center text-info mb-4">Ingreso</h2>
 
-                </div>
-                <div class="col-lg-6 mx-auto mb-4">
-                    <a href="/forgotPassword" id="flexCheckDefault" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=yes,fullscreen=no,scrollbars=no,dependent=no,width=700,left=10,height=700,top=10'); return false;">
-                        <label class="form-check-label"  for="flexCheckDefault">
-                            Forgot PASSWORD?
-                        </label>
-                    </a>
-                </div>
+                        <div class="mb-4">
+                            <form method="POST" th:object="${formUsersLogin}" th:action="@{/loginUser}">
+                                <div class="position-relative text-center">
+                                    <div class="col -12">
+                                        <input type="text" class="form-control mb-4" th:field="*{userApplication}" id="userApplication" placeholder="Documento de identidad">
+                                        <div class="col - 12">
+                                            <input type="password" class="form-control" th:field="*{passwordUser}" id="passwordUser" placeholder="Passsword">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center h-100 py-4">
+                                    <a href="/forgotPassword" id="flexCheckDefault" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=yes,fullscreen=no,scrollbars=no,dependent=no,width=700,left=10,height=700,top=10'); return false;">
+                                        <label class="form-check-label"  for="flexCheckDefault">
+                                            ¿Olvidaste tu contraseña?
+                                        </label>
+                                    </a>
+                                </div>
+                                <div class="d-grid gap-2 mb-4">
+                                    <button class="btn btn-info" type="submit">Iniciar Sesión</button>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center h-100">
 
+                                    <p> Copyright Reserve Company 2022 </p>
+                                </div>
+                            </form>
+                        </div>
 
-                <div class="col-lg-6 mx-auto mb-5 w-50 p-3">
-                    <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
-                </div>
-                <div>
-                    <p> Copyright Reserve Company 2022 </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </form>
-
-</main>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
